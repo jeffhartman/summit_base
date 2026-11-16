@@ -54,6 +54,31 @@ Until the package is on Packagist, add a VCS repository in the site `composer.js
 
 Composer places it at `themes/contrib/summit_base` (relative to the Drupal root: `docroot/` or `web/`).
 
+### Local checkout (path repository)
+
+To test an unpublished local clone (for example a sibling directory):
+
+```json
+{
+  "type": "path",
+  "url": "../summit_base",
+  "options": { "symlink": false }
+}
+```
+
+`"symlink": false` **mirrors** the theme into `themes/contrib/summit_base`. That works with DDEV Mutagen.
+
+`ddev composer` cannot see `../summit_base` unless that path is mounted in the web container. Either:
+
+- Run `composer require jeffhartman/summit_base:dev-main` **on the host**, or
+- Mount the checkout (for example `.ddev/docker-compose.summit_base.yaml` mapping `../../summit_base` → `/var/www/summit_base`) and point the path URL at the in-container location.
+
+After editing Summit Base, refresh the mirror:
+
+```sh
+composer update jeffhartman/summit_base
+```
+
 ## Create a child theme
 
 ```sh
@@ -69,26 +94,42 @@ ddev drush summit-base:create scratchboard_kitchen --proxy=scratchboard-kitchen.
 
 That wraps Drupal core `generate-theme` using the **thin** `summit_starterkit` skeleton (not a copy of Summit Base). The new theme is written to `themes/custom/MACHINE_NAME` and has `base theme: summit_base`.
 
+The command is discovered from Composer PSR-4 (`Drupal\summit_base\Drush\Commands`). You do not need to enable the theme first.
+
 Equivalent core command (Drupal 11.4+, from the Drupal root):
 
 ```sh
-vendor/bin/dr generate-theme MACHINE_NAME \
+../vendor/bin/dr generate-theme MACHINE_NAME \
   --starterkit=summit_starterkit \
-  --path themes/custom
+  --path=themes/custom \
+  --no-interaction
 ```
 
 On Drupal 11.3 and earlier: `php core/scripts/drupal generate-theme …` (from the Drupal root).
 
+`generate-theme` also hyphenates the BrowserSync host (`scratchboard_kitchen` → `scratchboard-kitchen.ddev.site`). `--proxy` on the Drush command overrides that.
+
 ### After generate
 
+From the **project root**, with DDEV:
+
 ```sh
-cd docroot/themes/custom/MACHINE_NAME   # or web/themes/custom/MACHINE_NAME
+ddev exec -d /var/www/html/docroot/themes/custom/MACHINE_NAME npm install
+ddev exec -d /var/www/html/docroot/themes/custom/MACHINE_NAME npm run build
+
+ddev drush theme:enable summit_base MACHINE_NAME
+ddev drush config:set system.theme default MACHINE_NAME -y
+ddev drush cr
+```
+
+If the Drupal root is `web/` instead of `docroot/`, change the `-d` path accordingly.
+
+On the host (Node 22.12+):
+
+```sh
+cd docroot/themes/custom/MACHINE_NAME
 npm install
 npm run build
-
-drush theme:enable summit_base MACHINE_NAME
-drush config:set system.theme default MACHINE_NAME -y
-drush cr
 ```
 
 Override DaisyUI tokens, fonts, and `--color-cta` in the child’s `css/src/app.css`. Set BrowserSync in the child’s `package.json` (`npm run browser`). `--proxy` on the Drush command defaults to `machine-name.ddev.site` (underscores become hyphens).

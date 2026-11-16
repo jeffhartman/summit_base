@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\summit_base\Commands;
+namespace Drupal\summit_base\Drush\Commands;
 
 use Drush\Attributes as CLI;
 use Drush\Boot\DrupalBootLevels;
@@ -100,6 +100,7 @@ EOT);
           '--starterkit=summit_starterkit',
           "--path=$path",
           "--name=$name",
+          '--no-interaction',
         ];
       }
     }
@@ -117,6 +118,7 @@ EOT);
       '--starterkit=summit_starterkit',
       "--path=$path",
       "--name=$name",
+      '--no-interaction',
     ];
   }
 

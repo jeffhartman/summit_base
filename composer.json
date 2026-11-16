@@ -11,12 +11,5 @@
     "psr-4": {
       "Drupal\\summit_base\\": "src/"
     }
-  },
-  "extra": {
-    "drush": {
-      "services": {
-        "drush.services.yml": "drush.services.yml"
-      }
-    }
   }
 }

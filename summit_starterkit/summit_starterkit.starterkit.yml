@@ -1,5 +1,5 @@
 ignore:
-  - '/src'
+  - '/src/StarterKit.php'
   - '/node_modules'
   - '/css/dist'
   - '/summit_starterkit.starterkit.yml'
