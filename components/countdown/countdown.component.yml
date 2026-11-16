@@ -1,0 +1,28 @@
+name: Countdown
+description: A DaisyUI countdown timer.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    heading:
+      title: Heading
+      description: Optional label, such as "Starts in".
+      type: string
+
+    days:
+      title: Days
+      type: integer
+
+    hours:
+      title: Hours
+      type: integer
+
+    minutes:
+      title: Minutes
+      type: integer
+
+    seconds:
+      title: Seconds
+      type: integer

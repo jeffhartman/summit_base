@@ -1,0 +1,24 @@
+name: Trust Bar
+description: A row of partner, certification, or other trust logos.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    heading:
+      title: Heading
+      type: string
+
+    items:
+      title: Items
+      type: array
+      items:
+        type: object
+        properties:
+          name:
+            type: string
+          url:
+            type: string
+          image:
+            type: string

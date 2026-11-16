@@ -1,0 +1,71 @@
+name: Table
+description: A DaisyUI table for rows and columns of data, with optional zebra striping and pinned headers.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    caption:
+      title: Caption
+      description: Accessible table caption.
+      type: string
+
+    headers:
+      title: Headers
+      description: Column header labels.
+      type: array
+      items:
+        type: string
+
+    rows:
+      title: Rows
+      description: Table body rows. Each row is an array of cell values.
+      type: array
+      items:
+        type: array
+        items:
+          type: string
+
+    footer:
+      title: Footer
+      description: Optional footer cells.
+      type: array
+      items:
+        type: string
+
+    zebra:
+      title: Zebra
+      description: Add DaisyUI table-zebra striping. Defaults to true.
+      type: boolean
+
+    pin_rows:
+      title: Pin rows
+      description: Add DaisyUI table-pin-rows so the header stays visible while scrolling.
+      type: boolean
+
+    pin_cols:
+      title: Pin columns
+      description: Add DaisyUI table-pin-cols so the first column stays visible while scrolling.
+      type: boolean
+
+    hover:
+      title: Hover
+      description: Highlight a row on hover.
+      type: boolean
+
+    size:
+      title: Size
+      description: DaisyUI table size.
+      type: string
+      enum:
+        - xs
+        - sm
+        - md
+        - lg
+        - xl
+
+slots:
+  content:
+    title: Content
+    description: Optional custom table body markup. Used when rows are not passed as props.

@@ -1,0 +1,37 @@
+<section{{ attributes.addClass('hero', 'hero-banner', 'relative', 'isolate', 'min-h-[28rem]', 'overflow-hidden') }}>
+  {% if image %}
+    <div class="absolute inset-0 -z-20 [&_picture]:absolute [&_picture]:inset-0 [&_picture]:h-full [&_picture]:w-full [&_img]:absolute [&_img]:inset-0 [&_img]:h-full [&_img]:w-full [&_img]:object-cover">
+      {{ image }}
+    </div>
+  {% endif %}
+
+  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-base-content/85 via-base-content/55 to-transparent"></div>
+
+  <div class="hero-content container-x w-full flex-col items-start py-28 text-primary-content md:py-44">
+    {% if eyebrow %}
+      <p class="eyebrow !text-cta">{{ eyebrow }}</p>
+    {% endif %}
+
+    {% if title %}
+      <h1 class="mt-4 max-w-4xl text-7xl text-primary-content md:text-9xl">{{ title }}</h1>
+    {% endif %}
+
+    {% if subtitle %}
+      <div class="mt-3 max-w-3xl text-2xl text-primary-content/90 md:text-4xl">{{ subtitle }}</div>
+    {% endif %}
+
+    {% if text %}
+      <div class="mt-6 max-w-xl text-lg text-primary-content/85 md:text-xl">{{ text }}</div>
+    {% endif %}
+
+    {% if actions %}
+      <div class="mt-10 flex flex-wrap gap-4">
+        {{ actions }}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if decoration %}
+    {{ decoration }}
+  {% endif %}
+</section>

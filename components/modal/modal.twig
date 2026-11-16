@@ -1,0 +1,88 @@
+{% set modal_id = id|clean_id %}
+{% set close_label = close_label|default('Close'|t) %}
+{% set close_on_backdrop = close_on_backdrop ?? true %}
+{% set title_id = modal_id ? modal_id ~ '-title' : null %}
+
+{%
+  set modal_classes = [
+    'modal',
+    variant == 'top' ? 'modal-top',
+    variant == 'bottom' ? 'modal-bottom',
+    variant == 'start' ? 'modal-start',
+    variant == 'end' ? 'modal-end',
+    variant == 'middle' or variant is empty ? 'modal-middle',
+  ]
+%}
+
+{% if trigger %}
+  {{ trigger }}
+{% elseif trigger_label and modal_id %}
+  <button
+    type="button"
+    class="btn border-0 bg-cta text-cta-foreground shadow-none hover:opacity-90"
+    data-modal-open="{{ modal_id }}"
+    command="show-modal"
+    commandfor="{{ modal_id }}"
+  >
+    {{ trigger_label }}
+  </button>
+{% endif %}
+
+{%
+  set dialog_attributes = attributes
+    .addClass(modal_classes)
+    .setAttribute('id', modal_id)
+    .setAttribute('aria-modal', 'true')
+%}
+
+{% if title_id %}
+  {% set dialog_attributes = dialog_attributes.setAttribute('aria-labelledby', title_id) %}
+{% endif %}
+
+{% if open %}
+  {% set dialog_attributes = dialog_attributes.setAttribute('data-modal-open-on-load', true) %}
+{% endif %}
+
+<dialog{{ dialog_attributes }}>
+  <div class="modal-box bg-base-100 text-base-content">
+    <form method="dialog">
+      <button
+        type="submit"
+        class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        aria-label="{{ close_label }}"
+      >
+        ✕
+      </button>
+    </form>
+
+    {% if title %}
+      <h3{{ title_id ? create_attribute({'id': title_id}) : create_attribute() }} class="font-display text-2xl font-medium">
+        {{ title }}
+      </h3>
+    {% endif %}
+
+    {% if body %}
+      <div class="prose prose-sm max-w-none py-4">
+        {{ body }}
+      </div>
+    {% endif %}
+
+    <div class="modal-action">
+      {% if actions %}
+        {{ actions }}
+      {% endif %}
+
+      <form method="dialog">
+        <button type="submit" class="btn shadow-none">
+          {{ close_label }}
+        </button>
+      </form>
+    </div>
+  </div>
+
+  {% if close_on_backdrop %}
+    <form method="dialog" class="modal-backdrop">
+      <button type="submit">{{ close_label }}</button>
+    </form>
+  {% endif %}
+</dialog>

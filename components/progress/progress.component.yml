@@ -1,0 +1,40 @@
+name: Progress
+description: A DaisyUI progress bar for task completion or remaining time.
+group: Content
+status: stable
+
+variants:
+  primary:
+    title: Primary
+  secondary:
+    title: Secondary
+  accent:
+    title: Accent
+  neutral:
+    title: Neutral
+  info:
+    title: Info
+  success:
+    title: Success
+  warning:
+    title: Warning
+  error:
+    title: Error
+
+props:
+  type: object
+  properties:
+    value:
+      title: Value
+      description: Current progress value.
+      type: number
+
+    max:
+      title: Max
+      description: Maximum progress value. Defaults to 100.
+      type: number
+
+    label:
+      title: Label
+      description: Accessible name for the progress bar.
+      type: string

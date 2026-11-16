@@ -1,0 +1,19 @@
+<div{{ attributes.addClass('empty-state', 'rounded-2xl', 'border', 'border-dashed', 'border-base-300', 'bg-base-100', 'px-8', 'py-16', 'text-center') }}>
+  {% if heading %}
+    <h2 class="font-display text-2xl font-medium text-base-content">
+      {{ heading }}
+    </h2>
+  {% endif %}
+
+  {% if message %}
+    <p class="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-base-content/60">
+      {{ message }}
+    </p>
+  {% endif %}
+
+  {% if actions %}
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      {{ actions }}
+    </div>
+  {% endif %}
+</div>

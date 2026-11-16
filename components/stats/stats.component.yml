@@ -1,0 +1,29 @@
+name: Stats
+description: A DaisyUI stats row for key figures.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    direction:
+      title: Direction
+      description: Stats layout.
+      type: string
+      enum:
+        - horizontal
+        - vertical
+
+    items:
+      title: Items
+      description: Stat blocks.
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+          value:
+            type: string
+          description:
+            type: string

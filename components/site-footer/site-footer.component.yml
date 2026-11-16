@@ -1,0 +1,33 @@
+name: Site footer
+description: DaisyUI footer with optional logo, decoration, explore links, and CTA.
+group: Layout
+status: stable
+
+props:
+  type: object
+  properties:
+    home_url:
+      type: string
+    blurb:
+      type: string
+    cta_url:
+      type: string
+    cta_label:
+      type: string
+    copyright:
+      type: string
+    links:
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+          url:
+            type: string
+
+slots:
+  logo:
+    title: Logo
+  decoration:
+    title: Decoration

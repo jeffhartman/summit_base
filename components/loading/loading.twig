@@ -1,0 +1,12 @@
+{% set label = label|default('Loading'|t) %}
+
+<span
+  {{ attributes.addClass(
+    'loading',
+    variant ? 'loading-' ~ variant : 'loading-spinner',
+    size ? 'loading-' ~ size : 'loading-md',
+    'text-accent'
+  ) }}
+  role="status"
+  aria-label="{{ label }}"
+></span>

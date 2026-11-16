@@ -1,0 +1,24 @@
+{% set range_min = min|default(0) %}
+{% set range_max = max|default(100) %}
+{% set range_value = value|default(range_min) %}
+{% set range_id = name|default('range')|clean_id %}
+
+<fieldset{{ attributes.addClass('fieldset', 'w-full') }}>
+  {% if label %}
+    <legend class="fieldset-legend flex w-full items-center justify-between">
+      <span>{{ label }}</span>
+      <span>{{ range_value }}</span>
+    </legend>
+  {% endif %}
+
+  <input
+    id="{{ range_id }}"
+    type="range"
+    class="range {{ variant ? 'range-' ~ variant : 'range-accent' }} {{ size ? 'range-' ~ size : '' }}"
+    name="{{ name|default('range') }}"
+    min="{{ range_min }}"
+    max="{{ range_max }}"
+    value="{{ range_value }}"
+    {% if label %}aria-label="{{ label }}"{% endif %}
+  />
+</fieldset>

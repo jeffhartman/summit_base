@@ -1,0 +1,26 @@
+{% set accordion_name = name|default('accordion') %}
+{% set accordion_variant = variant|default('arrow') %}
+
+{% if items %}
+  <section{{ attributes.addClass('accordion', 'py-12', 'sm:py-16') }}>
+    <div class="container-x">
+      {% if heading %}
+        <h2 class="mb-8 text-5xl md:text-7xl">
+          {{ heading }}
+        </h2>
+      {% endif %}
+
+      <div class="join join-vertical w-full">
+        {% for item in items %}
+            {{ include('summit_base:accordion-item', {
+            name: accordion_name,
+            title: item.title,
+            content: item.content,
+            open: item.open ?? loop.first,
+            variant: accordion_variant,
+          }, with_context = false) }}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

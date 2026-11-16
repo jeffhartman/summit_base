@@ -1,0 +1,45 @@
+{% if tabs %}
+  {% set list_id = id ?: 'tab-list' %}
+  {% set heading_id = heading ? list_id ~ '-heading' : null %}
+
+  <section{{ attributes.addClass('tab-list', 'py-12', 'sm:py-16').setAttribute('data-tab-list', true) }}>
+    <div class="container-x">
+      {% if heading %}
+        <h2{% if heading_id %} id="{{ heading_id }}"{% endif %} class="mb-8 text-5xl md:text-7xl">
+          {{ heading }}
+        </h2>
+      {% endif %}
+
+      <div
+        role="tablist"
+        class="-mb-px flex gap-6 overflow-x-auto border-b border-base-300"
+        aria-label="{{ heading ? heading : 'Tabs'|t }}"
+        {% if heading_id %}aria-labelledby="{{ heading_id }}"{% endif %}
+      >
+        {% for tab in tabs %}
+          {% set is_selected = tab.selected ?? loop.first %}
+          <button
+            type="button"
+            role="tab"
+            id="{{ tab.id }}-tab"
+            class="shrink-0 border-b-2 border-transparent pb-3 text-sm font-bold text-base-content/60 transition-colors hover:text-accent aria-selected:border-accent aria-selected:text-accent"
+            aria-controls="{{ tab.id }}-panel"
+            aria-selected="{{ is_selected ? 'true' : 'false' }}"
+            tabindex="{{ is_selected ? '0' : '-1' }}"
+          >
+            {{ tab.title }}
+          </button>
+        {% endfor %}
+      </div>
+
+      {% for tab in tabs %}
+        {{ include('summit_base:tab', {
+          id: tab.id,
+          title: tab.title,
+          selected: tab.selected ?? loop.first,
+          content: tab.content,
+        }, with_context = false) }}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

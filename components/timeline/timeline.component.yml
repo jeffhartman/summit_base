@@ -1,0 +1,52 @@
+name: Timeline
+description: A DaisyUI timeline for ordered events or other sequential content.
+group: Content
+status: stable
+
+variants:
+  vertical:
+    title: Vertical
+  horizontal:
+    title: Horizontal
+  rail:
+    title: Rail
+    description: Muted background with a dashed left rail and no item cards.
+
+props:
+  type: object
+  properties:
+    heading:
+      title: Heading
+      description: Optional heading displayed above the timeline.
+      type: string
+
+    compact:
+      title: Compact
+      description: Display all timeline content on one side. Recommended for vertical timelines.
+      type: boolean
+
+    snap_icon:
+      title: Snap icon
+      description: Align timeline markers to the connecting line using DaisyUI timeline-snap-icon.
+      type: boolean
+
+    items:
+      title: Items
+      description: Ordered timeline items.
+      type: array
+      items:
+        type: object
+        properties:
+          kicker:
+            type: string
+          title:
+            type: string
+          body:
+            type: string
+          icon:
+            type: string
+
+slots:
+  timeline_items:
+    title: Timeline items
+    description: Rendered timeline item components. Used when items are not passed as props.

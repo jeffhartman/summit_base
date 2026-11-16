@@ -1,0 +1,16 @@
+name: Section heading
+description: Eyebrow, display title, and optional intro used across marketing sections.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    eyebrow:
+      type: string
+    title:
+      type: string
+    intro:
+      type: string
+    center:
+      type: boolean

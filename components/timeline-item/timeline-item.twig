@@ -1,0 +1,39 @@
+<li{{ attributes.addClass('timeline-item', 'group') }}>
+  {% if not first %}
+    <hr class="bg-base-300" />
+  {% endif %}
+
+  <div class="timeline-middle">
+    {% if icon %}
+      <span class="flex size-6 items-center justify-center text-accent [&_img]:size-5 [&_img]:object-contain [&_svg]:size-5">
+        {{ icon }}
+      </span>
+    {% else %}
+      <span class="inline-block size-5 rounded-full border-4 border-base-100 bg-cta" aria-hidden="true"></span>
+    {% endif %}
+  </div>
+
+  {% if kicker %}
+    <div class="timeline-start mb-2 font-display text-2xl text-accent md:mb-0">
+      {{ kicker }}
+    </div>
+  {% endif %}
+
+  <div class="timeline-end timeline-box mb-8 border-base-300 bg-base-100 text-base-content shadow-none group-last:mb-0">
+    {% if title %}
+      <h3 class="text-4xl">
+        {{ title }}
+      </h3>
+    {% endif %}
+
+    {% if body %}
+      <div class="prose prose-sm mt-2 max-w-none">
+        {{ body }}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if not last %}
+    <hr class="bg-base-300" />
+  {% endif %}
+</li>

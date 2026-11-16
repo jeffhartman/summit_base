@@ -1,0 +1,20 @@
+name: Empty State
+description: A placeholder for empty results or missing content.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    heading:
+      title: Heading
+      type: string
+
+    message:
+      title: Message
+      type: string
+
+slots:
+  actions:
+    title: Actions
+    description: Optional calls to action, such as clearing filters.

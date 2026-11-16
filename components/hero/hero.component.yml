@@ -1,0 +1,20 @@
+name: Hero Banner
+description: "Large promotional banner with an image, heading, text, and optional call to action."
+group: Layout
+
+slots:
+  eyebrow:
+    title: Eyebrow
+  title:
+    title: Title
+  subtitle:
+    title: Subtitle
+  text:
+    title: Text
+  image:
+    title: Image
+  actions:
+    title: Actions
+  decoration:
+    title: Decoration
+    description: Optional decorative divider or overlay, typically from the site theme.

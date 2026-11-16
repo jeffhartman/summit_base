@@ -1,0 +1,8 @@
+<span
+  {{ attributes.addClass(
+    'status',
+    variant ? 'status-' ~ variant : 'status-success',
+    size ? 'status-' ~ size : ''
+  ) }}
+  {% if label %}aria-label="{{ label }}"{% endif %}
+></span>

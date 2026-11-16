@@ -1,0 +1,48 @@
+name: Divider
+description: A DaisyUI divider that separates content vertically or horizontally.
+group: Content
+status: stable
+
+variants:
+  default:
+    title: Default
+  primary:
+    title: Primary
+  secondary:
+    title: Secondary
+  accent:
+    title: Accent
+  neutral:
+    title: Neutral
+  info:
+    title: Info
+  success:
+    title: Success
+  warning:
+    title: Warning
+  error:
+    title: Error
+
+props:
+  type: object
+  properties:
+    text:
+      title: Text
+      description: Optional label in the center of the divider. Omit for a blank divider.
+      type: string
+
+    direction:
+      title: Direction
+      description: Divider direction.
+      type: string
+      enum:
+        - horizontal
+        - vertical
+
+    placement:
+      title: Placement
+      description: Text placement along the divider.
+      type: string
+      enum:
+        - start
+        - end

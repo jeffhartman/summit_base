@@ -1,0 +1,32 @@
+{%
+  set collapse_classes = [
+    'collapse',
+    'join-item',
+    'border',
+    'border-base-300',
+    'bg-base-100',
+    variant == 'plus' ? 'collapse-plus',
+    variant == 'arrow' or variant is empty ? 'collapse-arrow',
+  ]
+%}
+
+<div{{ attributes.addClass(collapse_classes) }}>
+  <input
+    type="radio"
+    name="{{ name }}"
+    {% if open %}checked="checked"{% endif %}
+    aria-label="{{ title }}"
+  />
+
+  {% if title %}
+    <div class="collapse-title font-display text-xl font-medium text-base-content">
+      {{ title }}
+    </div>
+  {% endif %}
+
+  {% if content %}
+    <div class="collapse-content prose prose-sm max-w-none">
+      {{ content }}
+    </div>
+  {% endif %}
+</div>

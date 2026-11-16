@@ -1,0 +1,15 @@
+{% set current = current|default(1) %}
+{% set total = total|default(1) %}
+{% set base_url = base_url|default('?page=') %}
+
+{% if total > 1 %}
+  <div{{ attributes.addClass('join') }} role="navigation" aria-label="{{ 'Pagination'|t }}">
+    {% for page in 1..total %}
+      {% if page == current %}
+        <button class="btn join-item btn-active shadow-none" aria-current="page">{{ page }}</button>
+      {% else %}
+        <a href="{{ base_url }}{{ page }}" class="btn join-item shadow-none">{{ page }}</a>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endif %}

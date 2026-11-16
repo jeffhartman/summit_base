@@ -1,0 +1,45 @@
+name: Tooltip
+description: A DaisyUI tooltip for short explanations.
+group: Content
+status: stable
+
+variants:
+  default:
+    title: Default
+  primary:
+    title: Primary
+  secondary:
+    title: Secondary
+  accent:
+    title: Accent
+  info:
+    title: Info
+  success:
+    title: Success
+  warning:
+    title: Warning
+  error:
+    title: Error
+
+props:
+  type: object
+  properties:
+    text:
+      title: Text
+      description: Tooltip message.
+      type: string
+
+    placement:
+      title: Placement
+      description: Tooltip placement.
+      type: string
+      enum:
+        - top
+        - bottom
+        - left
+        - right
+
+slots:
+  content:
+    title: Content
+    description: The element that triggers the tooltip.

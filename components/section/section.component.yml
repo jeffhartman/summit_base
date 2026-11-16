@@ -1,0 +1,33 @@
+name: Section
+description: A page section with an eyebrow, heading, intro, and a content slot for card grids.
+group: Layout
+status: stable
+
+props:
+  type: object
+  properties:
+    eyebrow:
+      title: Eyebrow
+      type: string
+
+    heading:
+      title: Heading
+      type: string
+
+    intro:
+      title: Intro
+      type: string
+
+    columns:
+      title: Columns
+      description: Grid columns for the content slot on large screens.
+      type: integer
+      enum:
+        - 2
+        - 3
+        - 4
+
+slots:
+  section_content:
+    title: Section content
+    description: Cards or other components rendered in the section grid.

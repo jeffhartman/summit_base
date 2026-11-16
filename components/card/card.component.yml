@@ -1,0 +1,12 @@
+name: Card
+description: A basic content card.
+
+slots:
+  image:
+    title: Image
+  title:
+    title: Title
+  content:
+    title: Content
+  actions:
+    title: Actions

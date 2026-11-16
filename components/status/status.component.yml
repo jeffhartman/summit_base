@@ -1,0 +1,40 @@
+name: Status
+description: A DaisyUI status dot.
+group: Content
+status: stable
+
+variants:
+  success:
+    title: Success
+  warning:
+    title: Warning
+  error:
+    title: Error
+  info:
+    title: Info
+  accent:
+    title: Accent
+  primary:
+    title: Primary
+  secondary:
+    title: Secondary
+  neutral:
+    title: Neutral
+
+props:
+  type: object
+  properties:
+    label:
+      title: Label
+      description: Accessible status label.
+      type: string
+
+    size:
+      title: Size
+      type: string
+      enum:
+        - xs
+        - sm
+        - md
+        - lg
+        - xl

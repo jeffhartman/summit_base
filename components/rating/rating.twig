@@ -1,0 +1,40 @@
+{% set rating_name = name|default('rating') %}
+{% set rating_max = max|default(5) %}
+{% set rating_value = value|default(0) %}
+
+{%
+  set rating_classes = [
+    'rating',
+    size ? 'rating-' ~ size,
+  ]
+%}
+
+<div{{ attributes.addClass(rating_classes) }} role="{{ readonly ? 'img' : 'radiogroup' }}" aria-label="{{ 'Rating'|t }}">
+  {% if not readonly and allow_empty %}
+    <input
+      type="radio"
+      name="{{ rating_name }}"
+      class="rating-hidden"
+      aria-label="{{ 'Clear rating'|t }}"
+      {% if rating_value == 0 %}checked="checked"{% endif %}
+    />
+  {% endif %}
+
+  {% for i in 1..rating_max %}
+    {% if readonly %}
+      <div
+        class="mask mask-star-2 bg-accent"
+        aria-label="{{ '@count star'|t({'@count': i}) }}"
+        {% if i == rating_value %}aria-current="true"{% endif %}
+      ></div>
+    {% else %}
+      <input
+        type="radio"
+        name="{{ rating_name }}"
+        class="mask mask-star-2 bg-accent"
+        aria-label="{{ '@count star'|t({'@count': i}) }}"
+        {% if i == rating_value %}checked="checked"{% endif %}
+      />
+    {% endif %}
+  {% endfor %}
+</div>

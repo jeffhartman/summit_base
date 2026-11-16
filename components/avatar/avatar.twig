@@ -1,0 +1,25 @@
+{% if items %}
+  <div{{ attributes.addClass('avatar-group', '-space-x-4') }}>
+    {% for item in items %}
+      <div class="avatar {{ item.image ? '' : 'avatar-placeholder' }}">
+        <div class="w-12 rounded-full {{ item.image ? '' : 'bg-secondary text-secondary-content' }}">
+          {% if item.image %}
+            {{ item.image }}
+          {% else %}
+            <span class="text-sm font-semibold">{{ item.name|first }}</span>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <div{{ attributes.addClass('avatar', status ? 'avatar-' ~ status : '', image ? '' : 'avatar-placeholder') }}>
+    <div class="w-12 rounded-full {{ image ? '' : 'bg-secondary text-secondary-content' }}">
+      {% if image %}
+        {{ image }}
+      {% else %}
+        <span class="text-sm font-semibold" title="{{ name }}">{{ name|first }}</span>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}

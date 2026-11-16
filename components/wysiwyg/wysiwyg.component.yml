@@ -1,0 +1,16 @@
+name: WYSIWYG
+description: "Displays formatted text with an optional heading, eyebrow, and actions."
+group: Content
+
+slots:
+  eyebrow:
+    title: Eyebrow
+
+  title:
+    title: Title
+
+  body:
+    title: Body
+
+  actions:
+    title: Actions

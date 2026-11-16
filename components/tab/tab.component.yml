@@ -1,0 +1,27 @@
+name: Tab
+description: A tab panel that displays nested paragraph components such as image-with-text, cards, and FAQs.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    id:
+      title: ID
+      description: Unique tab identifier used to connect the tab button and panel.
+      type: string
+
+    title:
+      title: Title
+      description: Tab label shown in the tab list.
+      type: string
+
+    selected:
+      title: Selected
+      description: Whether this tab is the active panel.
+      type: boolean
+
+slots:
+  content:
+    title: Content
+    description: Nested paragraph components rendered inside the tab panel.

@@ -1,0 +1,38 @@
+name: Tab List
+description: A tabbed interface that displays one or more tabs in editor-defined order. Each tab can contain nested paragraph components.
+group: Content
+status: stable
+
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once
+
+props:
+  type: object
+  properties:
+    id:
+      title: ID
+      description: Unique identifier for this tab list instance.
+      type: string
+
+    heading:
+      title: Heading
+      description: Optional heading displayed above the tab list.
+      type: string
+
+    tabs:
+      title: Tabs
+      description: Ordered tab items, each with an id, title, content, and selected state.
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          title:
+            type: string
+          content:
+            type: string
+          selected:
+            type: boolean

@@ -1,0 +1,46 @@
+{%
+  set faq_attributes = attributes
+    .addClass('group', 'rounded-2xl', 'border', 'border-base-300', 'bg-base-100')
+    .setAttribute('itemscope', true)
+    .setAttribute('itemprop', 'mainEntity')
+    .setAttribute('itemtype', 'https://schema.org/Question')
+%}
+
+{% if name %}
+  {% set faq_attributes = faq_attributes.setAttribute('name', name) %}
+{% endif %}
+
+{% if open %}
+  {% set faq_attributes = faq_attributes.setAttribute('open', true) %}
+{% endif %}
+
+<details{{ faq_attributes }}>
+  {% if question %}
+    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 p-8 font-display text-xl font-medium text-base-content marker:content-none [&::-webkit-details-marker]:hidden">
+      <span itemprop="name">{{ question }}</span>
+      <svg
+        class="size-5 shrink-0 text-accent transition-transform duration-200 group-open:rotate-180"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 8.25 12 15.75 4.5 8.25" />
+      </svg>
+    </summary>
+  {% endif %}
+
+  {% if answer %}
+    <div
+      class="prose prose-sm max-w-none px-8 pb-8"
+      itemscope
+      itemprop="acceptedAnswer"
+      itemtype="https://schema.org/Answer"
+    >
+      <div itemprop="text">
+        {{ answer }}
+      </div>
+    </div>
+  {% endif %}
+</details>

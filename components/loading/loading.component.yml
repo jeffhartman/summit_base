@@ -1,0 +1,37 @@
+name: Loading
+description: A DaisyUI loading indicator.
+group: Content
+status: stable
+
+variants:
+  spinner:
+    title: Spinner
+  dots:
+    title: Dots
+  ring:
+    title: Ring
+  ball:
+    title: Ball
+  bars:
+    title: Bars
+  infinity:
+    title: Infinity
+
+props:
+  type: object
+  properties:
+    size:
+      title: Size
+      description: DaisyUI loading size.
+      type: string
+      enum:
+        - xs
+        - sm
+        - md
+        - lg
+        - xl
+
+    label:
+      title: Label
+      description: Accessible loading label.
+      type: string

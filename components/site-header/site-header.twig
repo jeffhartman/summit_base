@@ -1,0 +1,60 @@
+{% set nav_links = links|default([]) %}
+{% set cta_url = cta_url|default('') %}
+{% set cta_label = cta_label|default('Get in touch'|t) %}
+
+<header{{ attributes.addClass('navbar', 'sticky', 'top-0', 'z-40', 'border-b', 'border-base-300', 'bg-base-100/95', 'backdrop-blur') }}>
+  <div class="container-x flex w-full items-center justify-between py-2">
+    <div class="navbar-start w-auto">
+      {% block logo %}
+        {% if logo %}
+          {{ logo }}
+        {% else %}
+          <a href="{{ home_url|default('/') }}" class="font-display text-3xl tracking-wide">{{ 'Home'|t }}</a>
+        {% endif %}
+      {% endblock %}
+    </div>
+
+    <div class="navbar-end w-auto gap-2">
+      <div class="flex items-center gap-8 max-md:hidden">
+        {% block menu %}
+          {% if nav_links %}
+            <nav class="flex items-center gap-8" aria-label="{{ 'Primary'|t }}">
+              {% for item in nav_links %}
+                <a href="{{ item.url }}" class="text-sm font-semibold hover:text-accent{{ item.active ? ' text-accent' : '' }}">{{ item.title }}</a>
+              {% endfor %}
+            </nav>
+          {% endif %}
+        {% endblock %}
+
+        {% if cta_url %}
+          {{ include('summit_base:button', {
+            label: cta_label,
+            url: cta_url,
+            variant: 'cta',
+            size: 'sm',
+          }, with_context = false) }}
+        {% endif %}
+      </div>
+
+      {% if nav_links or cta_url %}
+        <div class="dropdown dropdown-end md:hidden">
+          <button type="button" tabindex="0" class="btn btn-ghost btn-square" aria-label="{{ 'Open menu'|t }}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <ul tabindex="0" class="menu dropdown-content menu-lg z-50 mt-3 w-64 rounded-box border border-base-300 bg-base-100 p-4 shadow-lg">
+            {% for item in nav_links %}
+              <li><a href="{{ item.url }}" class="font-display text-3xl{{ item.active ? ' text-accent' : '' }}">{{ item.title }}</a></li>
+            {% endfor %}
+            {% if cta_url %}
+              <li>
+                <a href="{{ cta_url }}" class="font-display text-3xl text-cta">{{ cta_label }}</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</header>

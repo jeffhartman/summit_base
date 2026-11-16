@@ -1,0 +1,31 @@
+name: Image with Text
+description: A split layout with an image, heading, body copy, and calls to action. Editors can place the image on the left or the right.
+group: Content
+status: stable
+
+variants:
+  left:
+    title: Image left
+  right:
+    title: Image right
+
+slots:
+  title:
+    title: Title
+    description: Primary heading.
+
+  subtitle:
+    title: Subtitle
+    description: Supporting heading or kicker.
+
+  body:
+    title: Body
+    description: Supporting body copy.
+
+  image:
+    title: Image
+    description: Rendered image markup.
+
+  actions:
+    title: Actions
+    description: Primary and secondary calls to action.

@@ -1,0 +1,13 @@
+{%
+  set tooltip_classes = [
+    'tooltip',
+    placement ? 'tooltip-' ~ placement : 'tooltip-top',
+    variant and variant != 'default' ? 'tooltip-' ~ variant,
+  ]
+%}
+
+<div{{ attributes.addClass(tooltip_classes).setAttribute('data-tip', text) }}>
+  {% if content %}
+    {{ content }}
+  {% endif %}
+</div>

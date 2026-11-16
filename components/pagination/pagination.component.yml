@@ -1,0 +1,22 @@
+name: Pagination
+description: DaisyUI pagination for listing results.
+group: Navigation
+status: stable
+
+props:
+  type: object
+  properties:
+    current:
+      title: Current
+      description: Current page number, starting at 1.
+      type: integer
+
+    total:
+      title: Total
+      description: Total number of pages.
+      type: integer
+
+    base_url:
+      title: Base URL
+      description: URL prefix for page links, such as "/search?page=".
+      type: string

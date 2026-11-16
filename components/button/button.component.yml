@@ -1,0 +1,50 @@
+name: Button
+description: A basic button component.
+
+variants:
+  default:
+    title: Default
+  cta:
+    title: CTA
+  primary:
+    title: Primary
+  secondary:
+    title: Secondary
+  outline:
+    title: Outline
+  ghost:
+    title: Ghost
+  accent:
+    title: Accent
+  info:
+    title: Info
+  success:
+    title: Success
+  warning:
+    title: Warning
+  error:
+    title: Error
+slots:
+  label:
+    title: Label
+props:
+  type: object
+  properties:
+    size:
+      title: Size
+      description: "The size of the button."
+      type: string
+      enum:
+        - xs
+        - sm
+        - lg
+        - xl
+      "meta:enum":
+        xs: "Extra Small"
+        sm: "Small"
+        lg: "Large"
+        xl: "Xlarge"
+    url:
+      title: URL
+      description: The URL the button links to.
+      type: string

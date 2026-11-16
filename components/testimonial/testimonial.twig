@@ -1,0 +1,23 @@
+{% set is_featured = variant == 'featured' %}
+
+<blockquote{{ attributes.addClass(
+  'testimonial',
+  is_featured ? 'mx-auto max-w-4xl border-0 bg-transparent p-0 text-center' : 'border-l-4 border-accent bg-transparent py-2 pl-6'
+) }}>
+  {% if quote %}
+    <p class="font-display leading-tight {{ is_featured ? 'text-4xl md:text-6xl' : 'text-4xl' }}">
+      “{{ quote }}”
+    </p>
+  {% endif %}
+
+  {% if image or name or role %}
+    <footer class="{{ is_featured ? 'mt-6 text-base-content/60' : 'mt-3 text-base-content/60' }}">
+      {% if image %}
+        {{ image }}
+      {% endif %}
+      {% if name or role %}
+        — {% if name %}<cite class="not-italic">{{ name }}</cite>{% endif %}{% if name and role %}, {% endif %}{% if role %}{{ role }}{% endif %}
+      {% endif %}
+    </footer>
+  {% endif %}
+</blockquote>

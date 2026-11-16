@@ -1,0 +1,53 @@
+name: Badge
+description: A DaisyUI badge for short status labels.
+group: Content
+status: stable
+
+variants:
+  default:
+    title: Default
+  primary:
+    title: Primary
+  secondary:
+    title: Secondary
+  accent:
+    title: Accent
+  neutral:
+    title: Neutral
+  info:
+    title: Info
+  success:
+    title: Success
+  warning:
+    title: Warning
+  error:
+    title: Error
+
+props:
+  type: object
+  properties:
+    label:
+      title: Label
+      description: Badge text.
+      type: string
+
+    style:
+      title: Style
+      description: DaisyUI badge style.
+      type: string
+      enum:
+        - outline
+        - dash
+        - soft
+        - ghost
+
+    size:
+      title: Size
+      description: DaisyUI badge size.
+      type: string
+      enum:
+        - xs
+        - sm
+        - md
+        - lg
+        - xl

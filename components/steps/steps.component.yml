@@ -1,0 +1,27 @@
+name: Steps
+description: DaisyUI steps for a multi-step sequence.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    direction:
+      title: Direction
+      description: Steps layout.
+      type: string
+      enum:
+        - horizontal
+        - vertical
+
+    items:
+      title: Items
+      description: Steps in order. Completed steps receive the primary color.
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+          completed:
+            type: boolean

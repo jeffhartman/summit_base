@@ -1,0 +1,25 @@
+name: Skeleton
+description: A DaisyUI skeleton placeholder.
+group: Content
+status: stable
+
+variants:
+  line:
+    title: Line
+  card:
+    title: Card
+  text:
+    title: Text
+
+props:
+  type: object
+  properties:
+    width:
+      title: Width
+      description: Tailwind width class, such as "w-48".
+      type: string
+
+    height:
+      title: Height
+      description: Tailwind height class, such as "h-4".
+      type: string

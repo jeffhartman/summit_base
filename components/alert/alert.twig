@@ -1,0 +1,28 @@
+{%
+  set alert_classes = [
+    'alert',
+    'sm:alert-horizontal',
+    variant ? 'alert-' ~ variant : 'alert-info',
+    style ? 'alert-' ~ style,
+  ]
+%}
+
+<div{{ attributes.addClass(alert_classes).setAttribute('role', 'alert') }}>
+  <div>
+    {% if title %}
+      <h3 class="font-semibold">{{ title }}</h3>
+    {% endif %}
+
+    {% if message %}
+      <div class="text-sm {{ title ? 'mt-1' : '' }}">
+        {{ message }}
+      </div>
+    {% endif %}
+  </div>
+
+  {% if actions %}
+    <div class="flex flex-wrap gap-2">
+      {{ actions }}
+    </div>
+  {% endif %}
+</div>

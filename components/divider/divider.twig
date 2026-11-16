@@ -1,0 +1,16 @@
+{%
+  set divider_classes = [
+    'divider',
+    direction == 'horizontal' ? 'divider-horizontal',
+    direction == 'vertical' ? 'divider-vertical',
+    placement == 'start' ? 'divider-start',
+    placement == 'end' ? 'divider-end',
+    variant and variant != 'default' ? 'divider-' ~ variant,
+  ]
+%}
+
+<div{{ attributes.addClass(divider_classes) }}>
+  {% if text %}
+    {{ text }}
+  {% endif %}
+</div>

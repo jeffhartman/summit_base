@@ -1,0 +1,11 @@
+<label{{ attributes.addClass('label', 'cursor-pointer', 'justify-start', 'gap-3') }}>
+  <input
+    type="checkbox"
+    class="toggle {{ variant ? 'toggle-' ~ variant : 'toggle-accent' }} {{ size ? 'toggle-' ~ size : '' }}"
+    name="{{ name|default('toggle') }}"
+    {% if checked %}checked="checked"{% endif %}
+  />
+  {% if label %}
+    <span class="text-sm text-base-content">{{ label }}</span>
+  {% endif %}
+</label>

@@ -1,0 +1,67 @@
+{% set is_rail = variant == 'rail' %}
+{% set is_horizontal = variant == 'horizontal' %}
+{% set is_compact = compact ?? not is_horizontal %}
+{% set snap_icon = snap_icon ?? true %}
+
+{%
+  set timeline_classes = [
+    'timeline',
+    is_horizontal ? 'timeline-horizontal' : 'timeline-vertical',
+    is_compact ? 'timeline-compact',
+    snap_icon ? 'timeline-snap-icon',
+  ]
+%}
+
+<section{{ attributes.addClass([
+  'timeline-section',
+  is_rail ? 'bg-base-200' : 'py-12',
+  is_rail ? 'py-20' : 'sm:py-16',
+]) }}>
+  <div class="container-x">
+    {% if heading %}
+      <h2 class="{{ is_rail ? '' : 'mb-8 ' }}text-5xl md:text-7xl">
+        {{ heading }}
+      </h2>
+    {% endif %}
+
+    {% if is_rail %}
+      {% if items %}
+        <ol class="relative mt-12 border-l-4 border-dashed border-accent/40 pl-8">
+          {% for item in items %}
+            <li class="relative mb-10 last:mb-0">
+              <span class="absolute -left-[2.6rem] top-2 size-5 rounded-full border-4 border-base-200 bg-cta" aria-hidden="true"></span>
+              {% if item.kicker %}
+                <span class="font-display text-2xl text-accent">{{ item.kicker }}</span>
+              {% endif %}
+              {% if item.title %}
+                <h3 class="text-4xl">{{ item.title }}</h3>
+              {% endif %}
+              {% if item.body %}
+                <p class="mt-1 max-w-2xl text-base-content/60">{{ item.body }}</p>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ol>
+      {% elseif timeline_items %}
+        {{ timeline_items }}
+      {% endif %}
+    {% elseif items or timeline_items %}
+      <ul class="{{ timeline_classes|join(' ') }}">
+        {% if items %}
+          {% for item in items %}
+            {{ include('summit_base:timeline-item', {
+              kicker: item.kicker,
+              title: item.title,
+              body: item.body,
+              icon: item.icon,
+              first: loop.first,
+              last: loop.last,
+            }, with_context = false) }}
+          {% endfor %}
+        {% else %}
+          {{ timeline_items }}
+        {% endif %}
+      </ul>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,55 @@
+{% set nav_links = links|default([]) %}
+{% set cta_url = cta_url|default('') %}
+{% set cta_label = cta_label|default('Get in touch'|t) %}
+{% set year = 'now'|date('Y') %}
+
+<footer{{ attributes.addClass('mt-auto') }}>
+  {% if decoration %}
+    {{ decoration }}
+  {% endif %}
+
+  <div class="footer bg-primary p-0 text-primary-content">
+    <div class="container-x grid w-full gap-10 py-14 md:grid-cols-3">
+      <aside>
+        {% if logo %}
+          {{ logo }}
+        {% else %}
+          <a href="{{ home_url|default('/') }}" class="font-display text-3xl tracking-wide text-primary-content">{{ 'Home'|t }}</a>
+        {% endif %}
+        {% if blurb %}
+          <p class="mt-4 max-w-xs text-primary-content/75">
+            {{ blurb }}
+          </p>
+        {% endif %}
+      </aside>
+
+      {% if nav_links %}
+        <nav class="flex flex-col gap-2">
+          <h2 class="footer-title font-display text-2xl font-normal tracking-normal text-primary-content opacity-100">{{ 'Explore'|t }}</h2>
+          {% for item in nav_links %}
+            <a href="{{ item.url }}" class="link-hover link text-primary-content hover:text-cta">{{ item.title }}</a>
+          {% endfor %}
+        </nav>
+      {% endif %}
+
+      {% if cta_url %}
+        <div>
+          <h2 class="footer-title font-display text-2xl font-normal tracking-normal text-primary-content opacity-100">{{ 'Ready to get started?'|t }}</h2>
+          <div class="mt-4">
+            {{ include('summit_base:button', {
+              label: cta_label,
+              url: cta_url,
+              variant: 'cta',
+            }, with_context = false) }}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if copyright %}
+      <div class="container-x w-full border-t border-primary-content/15 py-6 text-sm text-primary-content/60">
+        {{ copyright }}
+      </div>
+    {% endif %}
+  </div>
+</footer>

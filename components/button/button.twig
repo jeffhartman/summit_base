@@ -1,0 +1,32 @@
+{% set variant = variant|default('cta') %}
+
+{% set classes = [
+  'btn',
+  'shadow-none',
+  'font-bold',
+  variant == 'cta' or variant == 'primary' ? 'border-0 bg-cta text-cta-foreground hover:bg-cta hover:opacity-90',
+  variant == 'secondary' ? 'btn-outline',
+  variant == 'outline' ? 'btn-outline border-2 border-primary-content text-primary-content hover:bg-primary-content hover:text-base-content',
+  variant == 'ghost' ? 'btn-ghost',
+  variant == 'accent' ? 'btn-accent',
+  variant == 'info' ? 'btn-info',
+  variant == 'success' ? 'btn-success',
+  variant == 'warning' ? 'btn-warning',
+  variant == 'error' ? 'btn-error',
+  size == 'xs' ? 'btn-xs',
+  size == 'sm' ? 'btn-sm',
+  size == 'lg' ? 'btn-lg',
+  size == 'xl' ? 'btn-xl',
+] %}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{% if url %}
+  <a{{ attributes.setAttribute('href', url) }}>
+    {{ label }}
+  </a>
+{% else %}
+  <button{{ attributes }}>
+    {{ label }}
+  </button>
+{% endif %}

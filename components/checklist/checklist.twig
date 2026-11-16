@@ -1,0 +1,22 @@
+{% if items %}
+  <section{{ attributes.addClass('checklist') }}>
+    {% if heading %}
+      <h2 class="mb-4 font-display text-2xl font-medium text-base-content">{{ heading }}</h2>
+    {% endif %}
+
+    <ul class="space-y-3">
+      {% for item in items %}
+        <li class="flex items-start gap-3 text-sm text-base-content">
+          {% if item.included %}
+            <span class="mt-0.5 inline-flex size-5 items-center justify-center rounded-full bg-success/15 text-success" aria-hidden="true">✓</span>
+            <span class="sr-only">{{ 'Included'|t }}</span>
+          {% else %}
+            <span class="mt-0.5 inline-flex size-5 items-center justify-center rounded-full bg-base-200 text-base-content/60" aria-hidden="true">–</span>
+            <span class="sr-only">{{ 'Not included'|t }}</span>
+          {% endif %}
+          <span>{{ item.label }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+{% endif %}

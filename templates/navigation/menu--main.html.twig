@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Main menu styled as a horizontal header nav.
+ */
+#}
+{% import _self as menus %}
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul{{ attributes.removeClass('menu').addClass('m-0', 'flex', 'list-none', 'items-center', 'gap-8', 'p-0') }}>
+    {% else %}
+      <ul class="menu menu-sm dropdown-content z-50 min-w-48 rounded-box bg-base-100 p-2 shadow">
+    {% endif %}
+    {% for item in items %}
+      {%
+        set item_classes = [
+          item.is_expanded ? 'menu-item--expanded',
+          item.is_collapsed ? 'menu-item--collapsed',
+          item.in_active_trail ? 'menu-item--active-trail',
+        ]
+      %}
+      <li{{ item.attributes.addClass(item_classes) }}>
+        {% if menu_level == 0 %}
+          <div class="{{ item.below ? 'dropdown dropdown-hover ' : '' }}[&>a]:text-sm [&>a]:font-semibold [&>a]:hover:text-accent{{ item.in_active_trail ? ' [&>a]:text-accent' : '' }}">
+            {{ link(item.title, item.url) }}
+            {% if item.below %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+            {% endif %}
+          </div>
+        {% else %}
+          {{ link(item.title, item.url) }}
+          {% if item.below %}
+            {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+          {% endif %}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

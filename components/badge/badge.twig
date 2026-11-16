@@ -1,0 +1,24 @@
+{%
+  set badge_classes = [
+    'badge',
+    'badge-sm',
+    'font-semibold',
+    variant == 'default' or variant is empty ? 'badge-ghost border-0 bg-base-200 text-accent',
+    variant == 'primary' ? 'badge-primary',
+    variant == 'secondary' ? 'badge-secondary',
+    variant == 'accent' ? 'badge-accent',
+    variant == 'neutral' ? 'badge-neutral',
+    variant == 'info' ? 'badge-info',
+    variant == 'success' ? 'badge-success',
+    variant == 'warning' ? 'badge-warning',
+    variant == 'error' ? 'badge-error',
+    style ? 'badge-' ~ style,
+    size ? 'badge-' ~ size,
+  ]
+%}
+
+<span{{ attributes.addClass(badge_classes) }}>
+  {% if label %}
+    {{ label }}
+  {% endif %}
+</span>

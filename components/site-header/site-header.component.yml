@@ -1,0 +1,31 @@
+name: Site header
+description: Sticky DaisyUI navbar with optional logo, menu, and CTA.
+group: Layout
+status: stable
+
+props:
+  type: object
+  properties:
+    home_url:
+      type: string
+    cta_url:
+      type: string
+    cta_label:
+      type: string
+    links:
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+          url:
+            type: string
+
+slots:
+  logo:
+    title: Logo
+    description: Optional site logo. Falls back to a Home text link.
+  menu:
+    title: Menu
+    description: Optional rendered Drupal menu. Falls back to links props.

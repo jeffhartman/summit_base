@@ -1,0 +1,9 @@
+{% if items %}
+  <ul{{ attributes.addClass('steps', 'w-full', direction == 'vertical' ? 'steps-vertical' : 'steps-horizontal') }}>
+    {% for item in items %}
+      <li class="step {{ item.completed ? 'step-primary' : '' }}">
+        {{ item.title }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endif %}

@@ -1,0 +1,47 @@
+name: Toggle
+description: A DaisyUI toggle.
+group: Content
+status: stable
+
+variants:
+  accent:
+    title: Accent
+  primary:
+    title: Primary
+  secondary:
+    title: Secondary
+  neutral:
+    title: Neutral
+  info:
+    title: Info
+  success:
+    title: Success
+  warning:
+    title: Warning
+  error:
+    title: Error
+
+props:
+  type: object
+  properties:
+    name:
+      title: Name
+      type: string
+
+    label:
+      title: Label
+      type: string
+
+    checked:
+      title: Checked
+      type: boolean
+
+    size:
+      title: Size
+      type: string
+      enum:
+        - xs
+        - sm
+        - md
+        - lg
+        - xl

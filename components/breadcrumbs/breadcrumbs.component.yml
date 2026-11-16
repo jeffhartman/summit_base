@@ -1,0 +1,19 @@
+name: Breadcrumbs
+description: DaisyUI breadcrumbs for hierarchical page navigation.
+group: Navigation
+status: stable
+
+props:
+  type: object
+  properties:
+    items:
+      title: Items
+      description: Breadcrumb trail. The last item is the current page.
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+          url:
+            type: string

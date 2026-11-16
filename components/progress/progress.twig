@@ -1,0 +1,17 @@
+{% set progress_max = max|default(100) %}
+{% set progress_value = value|default(0) %}
+
+{%
+  set progress_classes = [
+    'progress',
+    'w-full',
+    variant ? 'progress-' ~ variant : 'progress-accent',
+  ]
+%}
+
+<progress
+  {{ attributes.addClass(progress_classes) }}
+  value="{{ progress_value }}"
+  max="{{ progress_max }}"
+  {% if label %}aria-label="{{ label }}"{% endif %}
+></progress>

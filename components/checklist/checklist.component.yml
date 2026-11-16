@@ -1,0 +1,22 @@
+name: Checklist
+description: A list of included and excluded items.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    heading:
+      title: Heading
+      type: string
+
+    items:
+      title: Items
+      type: array
+      items:
+        type: object
+        properties:
+          label:
+            type: string
+          included:
+            type: boolean

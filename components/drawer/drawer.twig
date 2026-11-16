@@ -1,0 +1,36 @@
+{% set drawer_id = (id|default('drawer'))|clean_id %}
+{% set toggle_label = toggle_label|default('Open drawer'|t) %}
+
+{%
+  set drawer_classes = [
+    'drawer',
+    variant == 'end' ? 'drawer-end',
+    open_on_large ? 'lg:drawer-open',
+  ]
+%}
+
+<div{{ attributes.addClass(drawer_classes) }}>
+  <input id="{{ drawer_id }}" type="checkbox" class="drawer-toggle" />
+
+  <div class="drawer-content">
+    <label
+      for="{{ drawer_id }}"
+      class="btn drawer-button shadow-none {{ open_on_large ? 'lg:hidden' : '' }}"
+    >
+      {{ toggle_label }}
+    </label>
+
+    {% if content %}
+      {{ content }}
+    {% endif %}
+  </div>
+
+  <div class="drawer-side">
+    <label for="{{ drawer_id }}" aria-label="{{ 'Close sidebar'|t }}" class="drawer-overlay"></label>
+    <div class="min-h-full w-80 bg-base-200 p-4 text-base-content">
+      {% if sidebar %}
+        {{ sidebar }}
+      {% endif %}
+    </div>
+  </div>
+</div>

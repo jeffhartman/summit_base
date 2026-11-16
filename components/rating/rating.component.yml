@@ -1,0 +1,43 @@
+name: Rating
+description: A DaisyUI star rating made of radio inputs, or a read-only rating display.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    name:
+      title: Name
+      description: Unique radio group name. Required when more than one rating is on the page.
+      type: string
+
+    value:
+      title: Value
+      description: Currently selected rating, from 0 through max.
+      type: integer
+
+    max:
+      title: Max
+      description: Number of stars. Defaults to 5.
+      type: integer
+
+    size:
+      title: Size
+      description: DaisyUI rating size.
+      type: string
+      enum:
+        - xs
+        - sm
+        - md
+        - lg
+        - xl
+
+    readonly:
+      title: Read only
+      description: Render a noninteractive rating using divs instead of radio inputs.
+      type: boolean
+
+    allow_empty:
+      title: Allow empty
+      description: Add a hidden radio so the user can clear the rating.
+      type: boolean

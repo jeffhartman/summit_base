@@ -1,0 +1,41 @@
+name: Alert
+description: A DaisyUI alert for notices and messages.
+group: Content
+status: stable
+
+variants:
+  info:
+    title: Info
+  success:
+    title: Success
+  warning:
+    title: Warning
+  error:
+    title: Error
+
+props:
+  type: object
+  properties:
+    title:
+      title: Title
+      description: Optional alert heading.
+      type: string
+
+    message:
+      title: Message
+      description: Alert body copy.
+      type: string
+
+    style:
+      title: Style
+      description: DaisyUI alert style.
+      type: string
+      enum:
+        - outline
+        - dash
+        - soft
+
+slots:
+  actions:
+    title: Actions
+    description: Optional buttons or links rendered inside the alert.

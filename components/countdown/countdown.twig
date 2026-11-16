@@ -1,0 +1,27 @@
+<div{{ attributes.addClass('countdown-block', 'text-center') }}>
+  {% if heading %}
+    <p class="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+      {{ heading }}
+    </p>
+  {% endif %}
+
+  <div class="flex items-center justify-center gap-4">
+    {% set units = [
+      { value: days, label: 'Days'|t },
+      { value: hours, label: 'Hours'|t },
+      { value: minutes, label: 'Minutes'|t },
+      { value: seconds, label: 'Seconds'|t },
+    ] %}
+
+    {% for unit in units %}
+      {% if unit.value is not same as(null) %}
+        <div>
+          <span class="countdown font-display text-3xl" aria-live="polite" aria-label="{{ unit.value }}">
+            <span style="--value:{{ unit.value }};">{{ unit.value }}</span>
+          </span>
+          <p class="mt-1 text-xs uppercase tracking-[0.16em] text-base-content/60">{{ unit.label }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

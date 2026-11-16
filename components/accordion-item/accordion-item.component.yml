@@ -1,0 +1,35 @@
+name: Accordion Item
+description: A single DaisyUI accordion item using collapse markup and a shared radio name.
+group: Content
+status: stable
+
+variants:
+  arrow:
+    title: Arrow
+  plus:
+    title: Plus
+  default:
+    title: Default
+
+props:
+  type: object
+  properties:
+    name:
+      title: Name
+      description: Shared radio name for this accordion group. Required so only one item stays open.
+      type: string
+
+    title:
+      title: Title
+      description: Accordion item heading shown in collapse-title.
+      type: string
+
+    open:
+      title: Open
+      description: Whether this item is expanded by default.
+      type: boolean
+
+slots:
+  content:
+    title: Content
+    description: Accordion body shown in collapse-content.

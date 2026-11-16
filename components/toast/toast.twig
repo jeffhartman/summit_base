@@ -1,0 +1,8 @@
+{% set horizontal = horizontal|default('end') %}
+{% set vertical = vertical|default('bottom') %}
+
+{% if content %}
+  <div{{ attributes.addClass('toast', 'toast-' ~ horizontal, 'toast-' ~ vertical) }}>
+    {{ content }}
+  </div>
+{% endif %}

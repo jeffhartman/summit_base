@@ -1,0 +1,41 @@
+name: Validator
+description: A DaisyUI validated input with an error or hint message.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    id:
+      title: ID
+      type: string
+
+    name:
+      title: Name
+      type: string
+
+    type:
+      title: Type
+      description: Input type, such as email or text.
+      type: string
+
+    label:
+      title: Label
+      type: string
+
+    value:
+      title: Value
+      type: string
+
+    required:
+      title: Required
+      type: boolean
+
+    hint:
+      title: Hint
+      description: Validator hint shown when the input is invalid.
+      type: string
+
+    placeholder:
+      title: Placeholder
+      type: string

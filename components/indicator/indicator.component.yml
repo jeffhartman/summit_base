@@ -1,0 +1,39 @@
+name: Indicator
+description: A DaisyUI indicator that places a badge or status mark on another element.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    value:
+      title: Value
+      description: Badge text rendered as the indicator item when the item slot is empty.
+      type: string
+
+    horizontal:
+      title: Horizontal
+      description: Horizontal placement of the indicator item.
+      type: string
+      enum:
+        - start
+        - center
+        - end
+
+    vertical:
+      title: Vertical
+      description: Vertical placement of the indicator item.
+      type: string
+      enum:
+        - top
+        - middle
+        - bottom
+
+slots:
+  item:
+    title: Item
+    description: Custom indicator item. DaisyUI requires indicator-item elements before the main content.
+
+  content:
+    title: Content
+    description: The element the indicator is attached to.

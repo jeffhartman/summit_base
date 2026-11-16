@@ -1,0 +1,36 @@
+name: Timeline Item
+description: A single DaisyUI timeline entry with an optional kicker, icon, title, and body.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    kicker:
+      title: Kicker
+      description: Date, day, or other label shown opposite or above the content, such as "Day 3" or "1984".
+      type: string
+
+    title:
+      title: Title
+      description: Timeline item heading.
+      type: string
+
+    first:
+      title: First
+      description: Whether this is the first item in the timeline.
+      type: boolean
+
+    last:
+      title: Last
+      description: Whether this is the last item in the timeline.
+      type: boolean
+
+slots:
+  icon:
+    title: Icon
+    description: Optional icon rendered in the timeline middle marker.
+
+  body:
+    title: Body
+    description: Supporting body copy for the timeline item.

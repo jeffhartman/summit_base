@@ -1,0 +1,27 @@
+{% set panel_id = id ? id ~ '-panel' : attributes.id %}
+{% set labelled_by = id ? id ~ '-tab' : null %}
+
+{%
+  set panel_attributes = attributes
+    .addClass('tab-panel', 'space-y-6', 'pt-8')
+    .setAttribute('role', 'tabpanel')
+    .setAttribute('tabindex', '0')
+%}
+
+{% if panel_id %}
+  {% set panel_attributes = panel_attributes.setAttribute('id', panel_id) %}
+{% endif %}
+
+{% if labelled_by %}
+  {% set panel_attributes = panel_attributes.setAttribute('aria-labelledby', labelled_by) %}
+{% endif %}
+
+{% if not selected %}
+  {% set panel_attributes = panel_attributes.setAttribute('hidden', 'hidden') %}
+{% endif %}
+
+<div{{ panel_attributes }}>
+  {% if content %}
+    {{ content }}
+  {% endif %}
+</div>

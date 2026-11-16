@@ -1,0 +1,60 @@
+{% set newsletter_heading = newsletter_heading|default('Newsletter'|t) %}
+{% set email_label = email_label|default('Email address'|t) %}
+{% set email_placeholder = email_placeholder|default('you@example.com'|t) %}
+{% set submit_label = submit_label|default('Subscribe'|t) %}
+
+<footer{{ attributes.addClass('footer', 'sm:footer-horizontal', 'bg-primary', 'p-10', 'text-primary-content') }}>
+  {% if brand %}
+    <aside>
+      {{ brand }}
+    </aside>
+  {% endif %}
+
+  {% if nav_columns %}
+    {% for column in nav_columns %}
+      <nav>
+        {% if column.title %}
+          <h2 class="footer-title text-primary-content opacity-100">{{ column.title }}</h2>
+        {% endif %}
+
+        {% if column.links %}
+          {% for link_item in column.links %}
+            <a class="link-hover link" href="{{ link_item.url }}">{{ link_item.title }}</a>
+          {% endfor %}
+        {% endif %}
+      </nav>
+    {% endfor %}
+  {% endif %}
+
+  {% if form %}
+    {{ form }}
+  {% elseif form_action %}
+    <form action="{{ form_action }}" method="post">
+      <h2 class="footer-title text-primary-content opacity-100">{{ newsletter_heading }}</h2>
+      <fieldset class="w-80">
+        <label class="label" for="{{ attributes.id ? attributes.id ~ '-email' : 'footer-email' }}">
+          {{ email_label }}
+        </label>
+        <div class="join">
+          <input
+            id="{{ attributes.id ? attributes.id ~ '-email' : 'footer-email' }}"
+            type="email"
+            name="email"
+            class="input join-item"
+            placeholder="{{ email_placeholder }}"
+            required
+          />
+          <button type="submit" class="btn join-item border-0 bg-cta text-cta-foreground shadow-none hover:opacity-90">
+            {{ submit_label }}
+          </button>
+        </div>
+      </fieldset>
+    </form>
+  {% endif %}
+</footer>
+
+{% if copyright %}
+  <div class="footer footer-center bg-primary px-10 py-4 text-primary-content/60">
+    <p>{{ copyright }}</p>
+  </div>
+{% endif %}

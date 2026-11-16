@@ -1,0 +1,37 @@
+name: Drawer
+description: A DaisyUI drawer sidebar that can open from the start or end of the page.
+group: Layout
+status: stable
+
+variants:
+  start:
+    title: Start
+  end:
+    title: End
+
+props:
+  type: object
+  properties:
+    id:
+      title: ID
+      description: Unique ID for the drawer-toggle checkbox and matching labels.
+      type: string
+
+    toggle_label:
+      title: Toggle label
+      description: Label for the button that opens the drawer.
+      type: string
+
+    open_on_large:
+      title: Open on large screens
+      description: Keep the sidebar visible from the large breakpoint up using lg:drawer-open.
+      type: boolean
+
+slots:
+  content:
+    title: Content
+    description: Main page content in drawer-content.
+
+  sidebar:
+    title: Sidebar
+    description: Sidebar content in drawer-side, typically a DaisyUI menu.

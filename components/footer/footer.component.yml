@@ -1,0 +1,66 @@
+name: Footer
+description: A DaisyUI footer with navigation columns and a newsletter form.
+group: Layout
+status: stable
+
+props:
+  type: object
+  properties:
+    newsletter_heading:
+      title: Newsletter heading
+      description: Heading above the footer form. Defaults to "Newsletter".
+      type: string
+
+    email_label:
+      title: Email label
+      description: Accessible label for the email field.
+      type: string
+
+    email_placeholder:
+      title: Email placeholder
+      description: Placeholder for the email field.
+      type: string
+
+    submit_label:
+      title: Submit label
+      description: Newsletter submit button label.
+      type: string
+
+    form_action:
+      title: Form action
+      description: Form action URL for the newsletter signup.
+      type: string
+      format: uri-reference
+
+    copyright:
+      title: Copyright
+      description: Optional copyright line below the footer columns.
+      type: string
+
+    nav_columns:
+      title: Nav columns
+      description: Footer navigation groups, each with a title and links.
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+          links:
+            type: array
+            items:
+              type: object
+              properties:
+                title:
+                  type: string
+                url:
+                  type: string
+
+slots:
+  brand:
+    title: Brand
+    description: Logo, site name, or short brand copy.
+
+  form:
+    title: Form
+    description: Optional custom form. If omitted, the built-in newsletter form is used.

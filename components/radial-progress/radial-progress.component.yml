@@ -1,0 +1,27 @@
+name: Radial Progress
+description: A DaisyUI radial progress indicator. Uses a div with --value because browsers cannot show text inside a progress element.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    value:
+      title: Value
+      description: Progress from 0 through 100. Sets both --value and the visible label.
+      type: number
+
+    size:
+      title: Size
+      description: CSS size for --size, such as "5rem". Defaults to DaisyUI's 5rem.
+      type: string
+
+    thickness:
+      title: Thickness
+      description: CSS thickness for --thickness, such as "4px" or "8%".
+      type: string
+
+    label:
+      title: Label
+      description: Optional custom label. Defaults to the value followed by a percent sign.
+      type: string

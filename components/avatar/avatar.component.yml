@@ -1,0 +1,37 @@
+name: Avatar
+description: A DaisyUI avatar or avatar group.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    image:
+      title: Image
+      description: Rendered image markup for a single avatar.
+      type: string
+
+    name:
+      title: Name
+      description: Accessible name. Used as a placeholder initial when no image is provided.
+      type: string
+
+    status:
+      title: Status
+      description: Online status modifier.
+      type: string
+      enum:
+        - online
+        - offline
+
+    items:
+      title: Items
+      description: When set, renders an avatar-group instead of a single avatar.
+      type: array
+      items:
+        type: object
+        properties:
+          image:
+            type: string
+          name:
+            type: string

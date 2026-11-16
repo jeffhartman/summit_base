@@ -1,0 +1,57 @@
+{% set zebra = zebra ?? true %}
+
+{%
+  set table_classes = [
+    'table',
+    zebra ? 'table-zebra',
+    pin_rows ? 'table-pin-rows',
+    pin_cols ? 'table-pin-cols',
+    size ? 'table-' ~ size,
+  ]
+%}
+
+{% if headers or rows or footer or content %}
+  <div{{ attributes.addClass('overflow-x-auto', 'rounded-box', 'border', 'border-base-300', 'bg-base-100') }}>
+    <table class="{{ table_classes|join(' ') }}">
+      {% if caption %}
+        <caption class="caption-bottom p-4 text-sm text-base-content/60">
+          {{ caption }}
+        </caption>
+      {% endif %}
+
+      {% if headers %}
+        <thead>
+          <tr>
+            {% for header in headers %}
+              <th>{{ header }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+      {% endif %}
+
+      <tbody>
+        {% if rows %}
+          {% for row in rows %}
+            <tr{% if hover %} class="hover"{% endif %}>
+              {% for cell in row %}
+                <td>{{ cell }}</td>
+              {% endfor %}
+            </tr>
+          {% endfor %}
+        {% elseif content %}
+          {{ content }}
+        {% endif %}
+      </tbody>
+
+      {% if footer %}
+        <tfoot>
+          <tr>
+            {% for cell in footer %}
+              <th>{{ cell }}</th>
+            {% endfor %}
+          </tr>
+        </tfoot>
+      {% endif %}
+    </table>
+  </div>
+{% endif %}

@@ -1,0 +1,23 @@
+{% set column_class = {
+  2: 'lg:grid-cols-2',
+  3: 'lg:grid-cols-3',
+  4: 'lg:grid-cols-4',
+}[columns|default(3)] %}
+
+<section{{ attributes.addClass('content-section', 'py-20') }}>
+  <div class="container-x">
+    {% if eyebrow or heading or intro %}
+      {{ include('summit_base:section-heading', {
+        eyebrow: eyebrow,
+        title: heading,
+        intro: intro,
+      }, with_context = false) }}
+    {% endif %}
+
+    {% if section_content %}
+      <div class="mt-12 grid gap-8 {{ column_class }}">
+        {{ section_content }}
+      </div>
+    {% endif %}
+  </div>
+</section>

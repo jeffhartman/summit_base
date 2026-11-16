@@ -1,0 +1,15 @@
+{% set input_id = (name|default('file'))|clean_id %}
+
+<fieldset{{ attributes.addClass('fieldset', 'w-full') }}>
+  {% if label %}
+    <label class="label" for="{{ input_id }}">{{ label }}</label>
+  {% endif %}
+
+  <input
+    id="{{ input_id }}"
+    type="file"
+    name="{{ name|default('file') }}"
+    class="file-input w-full {{ size ? 'file-input-' ~ size : '' }}"
+    {% if accept %}accept="{{ accept }}"{% endif %}
+  />
+</fieldset>

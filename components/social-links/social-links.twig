@@ -1,0 +1,11 @@
+{% if items %}
+  <nav{{ attributes.addClass('social-links') }} aria-label="{{ 'Social'|t }}">
+    <ul class="flex flex-wrap gap-4">
+      {% for item in items %}
+        <li>
+          <a href="{{ item.url }}" class="link link-hover text-sm">{{ item.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

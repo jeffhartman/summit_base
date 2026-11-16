@@ -1,0 +1,16 @@
+{% set horizontal = horizontal|default('end') %}
+{% set vertical = vertical|default('top') %}
+
+<div{{ attributes.addClass('indicator') }}>
+  {% if item %}
+    {{ item }}
+  {% elseif value %}
+    <span class="indicator-item badge badge-accent indicator-{{ horizontal }} indicator-{{ vertical }}">
+      {{ value }}
+    </span>
+  {% endif %}
+
+  {% if content %}
+    {{ content }}
+  {% endif %}
+</div>

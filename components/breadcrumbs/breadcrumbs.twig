@@ -1,0 +1,15 @@
+{% if items %}
+  <nav{{ attributes.addClass('breadcrumbs', 'text-sm') }} aria-label="{{ 'Breadcrumb'|t }}">
+    <ul>
+      {% for item in items %}
+        <li>
+          {% if item.url and not loop.last %}
+            <a href="{{ item.url }}">{{ item.title }}</a>
+          {% else %}
+            <span{% if loop.last %} aria-current="page"{% endif %}>{{ item.title }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

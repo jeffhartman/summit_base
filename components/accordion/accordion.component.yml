@@ -1,0 +1,39 @@
+name: Accordion
+description: A DaisyUI accordion group. Items share a radio name so only one panel stays open at a time.
+group: Content
+status: stable
+
+variants:
+  arrow:
+    title: Arrow
+  plus:
+    title: Plus
+  default:
+    title: Default
+
+props:
+  type: object
+  properties:
+    heading:
+      title: Heading
+      description: Optional heading displayed above the accordion.
+      type: string
+
+    name:
+      title: Name
+      description: Unique radio name for this accordion group. Required when more than one accordion is on the page.
+      type: string
+
+    items:
+      title: Items
+      description: Ordered accordion items.
+      type: array
+      items:
+        type: object
+        properties:
+          title:
+            type: string
+          content:
+            type: string
+          open:
+            type: boolean

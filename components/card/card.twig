@@ -1,0 +1,23 @@
+<div{{ attributes.addClass('card', 'w-full', 'border', 'border-base-300', 'bg-base-100', 'shadow-none') }}>
+  {% if image %}
+    <figure>
+      {{ image }}
+    </figure>
+  {% endif %}
+
+  <div class="card-body">
+    {% if title %}
+      <h3 class="card-title font-display text-3xl font-normal">
+        {{ title }}
+      </h3>
+    {% endif %}
+
+    {{ content }}
+
+    {% if actions %}
+      <div class="card-actions w-full">
+        {{ actions }}
+      </div>
+    {% endif %}
+  </div>
+</div>

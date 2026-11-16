@@ -1,0 +1,5 @@
+# Child themes should compile and attach their own Tailwind CSS.
+# This library is available if a site uses Summit Base without a child.
+global:
+  js:
+    js/summit-base.js: {}

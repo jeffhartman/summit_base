@@ -1,0 +1,51 @@
+{% set image_on_right = variant == 'right' %}
+
+<section{{ attributes.addClass(
+  'image-with-text',
+  'py-12',
+  'sm:py-16',
+  image_on_right ? 'image-with-text--right' : 'image-with-text--left'
+) }}>
+  <div class="container-x">
+    <div class="{{ [
+      'flex',
+      'flex-col',
+      'items-center',
+      'gap-10',
+      'lg:gap-16',
+      image_on_right ? 'lg:flex-row-reverse' : 'lg:flex-row',
+    ]|join(' ') }}">
+      {% if image %}
+        <div class="w-full overflow-hidden rounded-2xl lg:w-1/2 [&_picture]:block [&_picture]:h-full [&_picture]:w-full [&_img]:aspect-[4/3] [&_img]:h-full [&_img]:w-full [&_img]:object-cover">
+          {{ image }}
+        </div>
+      {% endif %}
+
+      <div class="w-full lg:w-1/2">
+        {% if subtitle %}
+          <p class="eyebrow">
+            {{ subtitle }}
+          </p>
+        {% endif %}
+
+        {% if title %}
+          <h2 class="{{ subtitle ? 'mt-3' : '' }} text-5xl md:text-7xl">
+            {{ title }}
+          </h2>
+        {% endif %}
+
+        {% if body %}
+          <div class="prose mt-6 max-w-none">
+            {{ body }}
+          </div>
+        {% endif %}
+
+        {% if actions %}
+          <div class="mt-8 flex flex-wrap gap-3">
+            {{ actions }}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>

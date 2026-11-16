@@ -1,0 +1,22 @@
+{% set input_id = (id|default(name|default('field')))|clean_id %}
+{% set input_type = type|default('text') %}
+
+<fieldset{{ attributes.addClass('fieldset', 'w-full') }}>
+  {% if label %}
+    <label class="label" for="{{ input_id }}">{{ label }}</label>
+  {% endif %}
+
+  <input
+    id="{{ input_id }}"
+    type="{{ input_type }}"
+    name="{{ name|default(input_id) }}"
+    class="input validator w-full"
+    value="{{ value }}"
+    placeholder="{{ placeholder }}"
+    {% if required %}required{% endif %}
+  />
+
+  {% if hint %}
+    <p class="validator-hint">{{ hint }}</p>
+  {% endif %}
+</fieldset>

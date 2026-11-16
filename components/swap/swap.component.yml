@@ -1,0 +1,22 @@
+name: Swap
+description: A DaisyUI swap control for toggling values such as USD/EUR or Celsius/Fahrenheit.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    on:
+      title: On
+      description: Content shown when the swap is active, such as "EUR".
+      type: string
+
+    off:
+      title: Off
+      description: Content shown when the swap is inactive, such as "USD".
+      type: string
+
+    rotate:
+      title: Rotate
+      description: Add DaisyUI swap-rotate.
+      type: boolean

@@ -1,0 +1,30 @@
+name: Toast
+description: A DaisyUI toast wrapper that stacks alerts in a screen corner.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    horizontal:
+      title: Horizontal
+      description: Horizontal placement.
+      type: string
+      enum:
+        - start
+        - center
+        - end
+
+    vertical:
+      title: Vertical
+      description: Vertical placement.
+      type: string
+      enum:
+        - top
+        - middle
+        - bottom
+
+slots:
+  content:
+    title: Content
+    description: Alerts or messages stacked in the toast.

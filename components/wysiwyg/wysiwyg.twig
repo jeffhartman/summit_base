@@ -1,0 +1,25 @@
+<section{{ attributes.addClass('wysiwyg', 'py-12', 'sm:py-16') }}>
+  <div class="container-x">
+    <div class="max-w-3xl">
+      {% if eyebrow %}
+        <p class="eyebrow">{{ eyebrow }}</p>
+      {% endif %}
+
+      {% if title %}
+        <h2 class="mt-2 text-5xl md:text-7xl">{{ title }}</h2>
+      {% endif %}
+
+      {% if body %}
+        <div class="prose mt-6 max-w-none">
+          {{ body }}
+        </div>
+      {% endif %}
+
+      {% if actions %}
+        <div class="mt-8 flex flex-wrap gap-4">
+          {{ actions }}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

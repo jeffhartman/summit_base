@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Generic page chrome. Site themes can override this to inject brand slots.
+ */
+#}
+<div class="flex min-h-screen flex-col bg-base-100 text-base-content">
+  {{ include('summit_base:site-header', {
+    home_url: front_page,
+    links: summit_nav_links,
+  }, with_context = false) }}
+
+  <main class="flex-1">
+    <a id="main-content" tabindex="-1"></a>
+
+    {% if page.breadcrumb %}
+      <div class="container-x py-4">
+        {{ page.breadcrumb }}
+      </div>
+    {% endif %}
+
+    {{ page.featured }}
+    {{ page.content }}
+  </main>
+
+  {{ include('summit_base:site-footer', {
+    home_url: front_page,
+    links: summit_nav_links,
+  }, with_context = false) }}
+</div>

@@ -1,0 +1,23 @@
+{% set progress_value = value|default(0) %}
+{% set progress_label = label|default(progress_value ~ '%') %}
+
+{%
+  set radial_styles = [
+    '--value:' ~ progress_value,
+    size ? '--size:' ~ size,
+    thickness ? '--thickness:' ~ thickness,
+  ]
+%}
+
+<div
+  {{ attributes
+    .addClass('radial-progress', 'text-accent')
+    .setAttribute('style', radial_styles|join(';'))
+    .setAttribute('role', 'progressbar')
+    .setAttribute('aria-valuenow', progress_value)
+    .setAttribute('aria-valuemin', '0')
+    .setAttribute('aria-valuemax', '100')
+  }}
+>
+  {{ progress_label }}
+</div>

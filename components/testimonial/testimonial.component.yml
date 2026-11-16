@@ -1,0 +1,31 @@
+name: Testimonial
+description: A quote with attribution.
+group: Content
+status: stable
+
+variants:
+  default:
+    title: Default
+  featured:
+    title: Featured
+
+props:
+  type: object
+  properties:
+    quote:
+      title: Quote
+      type: string
+
+    name:
+      title: Name
+      type: string
+
+    role:
+      title: Role
+      description: Attribution line, such as a job title or organization.
+      type: string
+
+slots:
+  image:
+    title: Image
+    description: Optional portrait, typically an avatar.

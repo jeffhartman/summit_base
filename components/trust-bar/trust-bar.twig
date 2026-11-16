@@ -1,0 +1,29 @@
+{% if items %}
+  <aside{{ attributes.addClass('trust-bar', 'py-8') }}>
+    {% if heading %}
+      <p class="eyebrow mb-8 text-center">
+        {{ heading }}
+      </p>
+    {% endif %}
+
+    <ul class="grid grid-cols-2 gap-4 md:grid-cols-5">
+      {% for item in items %}
+        <li class="flex h-20 items-center justify-center rounded-md border border-base-300 px-3 text-center font-display text-xl text-base-content/60">
+          {% if item.url %}
+            <a href="{{ item.url }}" class="hover:text-base-content">
+              {% if item.image %}
+                {{ item.image }}
+              {% else %}
+                {{ item.name }}
+              {% endif %}
+            </a>
+          {% elseif item.image %}
+            {{ item.image }}
+          {% else %}
+            {{ item.name }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </aside>
+{% endif %}

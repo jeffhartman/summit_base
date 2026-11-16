@@ -1,0 +1,26 @@
+name: FAQ
+description: An expandable question and answer item for frequently asked questions.
+group: Content
+status: stable
+
+props:
+  type: object
+  properties:
+    name:
+      title: Accordion name
+      description: Optional shared name so only one FAQ item in a group is open at a time.
+      type: string
+
+    open:
+      title: Open
+      description: Whether the answer is expanded by default.
+      type: boolean
+
+slots:
+  question:
+    title: Question
+    description: The FAQ question.
+
+  answer:
+    title: Answer
+    description: The FAQ answer.

@@ -1,0 +1,13 @@
+<div{{ attributes.addClass('max-w-3xl', center ? 'mx-auto text-center') }}>
+  {% if eyebrow %}
+    <p class="eyebrow">{{ eyebrow }}</p>
+  {% endif %}
+
+  {% if title %}
+    <h2 class="mt-2 text-5xl md:text-7xl">{{ title }}</h2>
+  {% endif %}
+
+  {% if intro %}
+    <p class="mt-4 text-lg text-base-content/60">{{ intro }}</p>
+  {% endif %}
+</div>

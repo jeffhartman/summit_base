@@ -1,0 +1,55 @@
+name: Range
+description: A DaisyUI range slider for filters such as price.
+group: Content
+status: stable
+
+variants:
+  accent:
+    title: Accent
+  primary:
+    title: Primary
+  secondary:
+    title: Secondary
+  neutral:
+    title: Neutral
+  info:
+    title: Info
+  success:
+    title: Success
+  warning:
+    title: Warning
+  error:
+    title: Error
+
+props:
+  type: object
+  properties:
+    name:
+      title: Name
+      type: string
+
+    label:
+      title: Label
+      type: string
+
+    min:
+      title: Min
+      type: number
+
+    max:
+      title: Max
+      type: number
+
+    value:
+      title: Value
+      type: number
+
+    size:
+      title: Size
+      type: string
+      enum:
+        - xs
+        - sm
+        - md
+        - lg
+        - xl

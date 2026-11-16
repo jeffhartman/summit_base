@@ -1,0 +1,66 @@
+name: Modal
+description: A DaisyUI modal dialog with a trigger, box, actions, and optional backdrop close.
+group: Content
+status: stable
+
+libraryOverrides:
+  dependencies:
+    - core/drupal
+    - core/once
+
+variants:
+  middle:
+    title: Middle
+  top:
+    title: Top
+  bottom:
+    title: Bottom
+  start:
+    title: Start
+  end:
+    title: End
+
+props:
+  type: object
+  properties:
+    id:
+      title: ID
+      description: Unique HTML ID required by DaisyUI so the modal can be opened with showModal().
+      type: string
+
+    trigger_label:
+      title: Trigger label
+      description: Label for the button that opens the modal.
+      type: string
+
+    close_label:
+      title: Close label
+      description: Label for the dialog close button. Defaults to "Close".
+      type: string
+
+    close_on_backdrop:
+      title: Close on backdrop
+      description: Add DaisyUI modal-backdrop so clicking outside closes the modal.
+      type: boolean
+
+    open:
+      title: Open
+      description: Whether the modal should open when the page loads.
+      type: boolean
+
+slots:
+  trigger:
+    title: Trigger
+    description: Optional custom trigger. If omitted, trigger_label renders a DaisyUI button.
+
+  title:
+    title: Title
+    description: Modal heading.
+
+  body:
+    title: Body
+    description: Modal body copy.
+
+  actions:
+    title: Actions
+    description: Extra buttons rendered in DaisyUI modal-action. Dialog close is included automatically.
