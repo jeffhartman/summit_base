@@ -1,0 +1,6 @@
+global:
+  css:
+    theme:
+      css/dist/app.css: {}
+  dependencies:
+    - summit_base/global

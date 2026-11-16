@@ -1,0 +1,22 @@
+{
+  "name": "jeffhartman/summit_base",
+  "description": "Drupal base theme of DaisyUI SDC primitives and a Tailwind CSS v4 build.",
+  "type": "drupal-theme",
+  "license": "ISC",
+  "require": {
+    "php": ">=8.1",
+    "drupal/core": "^10 || ^11"
+  },
+  "autoload": {
+    "psr-4": {
+      "Drupal\\summit_base\\": "src/"
+    }
+  },
+  "extra": {
+    "drush": {
+      "services": {
+        "drush.services.yml": "drush.services.yml"
+      }
+    }
+  }
+}

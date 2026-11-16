@@ -1,0 +1,5 @@
+services:
+  summit_base.commands.create_subtheme:
+    class: Drupal\summit_base\Commands\CreateSubthemeCommands
+    tags:
+      - { name: drush.command }

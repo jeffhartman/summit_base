@@ -1,0 +1,9 @@
+name: Summit Starterkit
+type: theme
+base theme: summit_base
+hidden: true
+description: 'Thin child-theme skeleton for Summit Base. Used by generate-theme / drush summit-base:create.'
+package: SMMT
+core_version_requirement: ^10 || ^11
+libraries:
+  - summit_starterkit/global

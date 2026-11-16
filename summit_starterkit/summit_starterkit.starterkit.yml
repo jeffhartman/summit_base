@@ -1,0 +1,9 @@
+ignore:
+  - '/src'
+  - '/node_modules'
+  - '/css/dist'
+  - '/summit_starterkit.starterkit.yml'
+no_edit: []
+no_rename: []
+info:
+  version: 1.0.0

@@ -1,0 +1,40 @@
+/*
+ * Child-theme stylesheet. Imports Summit Base, then override tokens.
+ *
+ * Paths assume this theme lives in themes/custom and Summit Base in
+ * themes/contrib/summit_base (Composer). Adjust @import / @source if not.
+ */
+@import "@summit-base/css/src/app.css";
+
+@source "../../components";
+@source "../../templates";
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-base-100: oklch(1 0 0);
+  --color-base-200: oklch(0.97 0.005 250);
+  --color-base-300: oklch(0.91 0.01 250);
+  --color-base-content: oklch(0.25 0.02 260);
+  --color-primary: oklch(0.45 0.12 260);
+  --color-primary-content: oklch(0.99 0 0);
+  --color-secondary: oklch(0.96 0.01 250);
+  --color-secondary-content: oklch(0.25 0.02 260);
+  --color-accent: oklch(0.55 0.12 230);
+  --color-accent-content: oklch(0.99 0 0);
+  --color-neutral: oklch(0.25 0.02 260);
+  --color-neutral-content: oklch(0.99 0 0);
+  --color-info: oklch(0.55 0.12 230);
+  --color-success: oklch(0.55 0.14 150);
+  --color-warning: oklch(0.75 0.15 75);
+  --color-error: oklch(0.577 0.245 27.325);
+}
+
+@theme inline {
+  --font-display: ui-sans-serif, system-ui, sans-serif;
+  --font-body: ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-display);
+  --color-cta: oklch(0.55 0.15 250);
+  --color-cta-foreground: oklch(0.99 0 0);
+}
